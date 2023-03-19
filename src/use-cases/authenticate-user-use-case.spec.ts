@@ -3,7 +3,7 @@ import bcryptjs from 'bcryptjs'
 
 import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository'
 import { AuthenticateUserUseCase } from './authenticate-user-use-case'
-import { InvalidCredentialsError } from './errors/invalid-credentials.error'
+import { InvalidCredentialsError } from './errors/invalid-credentials-error'
 
 describe('AuthenticateUserUseCase', () => {
   it('should be able to authenticate', async () => {

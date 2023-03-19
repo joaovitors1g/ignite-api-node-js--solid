@@ -1,7 +1,7 @@
 import { IUsersRepository } from '@/repositories/users-repository'
 import { User } from '@prisma/client'
 import bcryptjs from 'bcryptjs'
-import { InvalidCredentialsError } from './errors/invalid-credentials.error'
+import { InvalidCredentialsError } from './errors/invalid-credentials-error'
 
 interface IAuthenticateUserRequest {
   email: string
