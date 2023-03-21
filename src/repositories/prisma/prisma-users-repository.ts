@@ -1,6 +1,6 @@
 import { prisma } from '@/lib/prisma'
 import { Prisma, User } from '@prisma/client'
-import { IUsersRepository } from './users-repository'
+import { IUsersRepository } from '../users-repository'
 
 export class PrismaUsersRepository implements IUsersRepository {
   async findById(id: string): Promise<User | null> {
