@@ -5,6 +5,12 @@ import { IGymsRepository } from '../gyms-repository'
 export class InMemoryGymsRepository implements IGymsRepository {
   public gyms: Gym[] = []
 
+  async searchMany(query: string, page: number): Promise<Gym[]> {
+    return this.gyms
+      .filter((gym) => gym.name.includes(query))
+      .slice((page - 1) * 20, page * 20)
+  }
+
   async findById(id: string): Promise<Gym | null> {
     const gym = this.gyms.find((gym) => gym.id === id)
 
