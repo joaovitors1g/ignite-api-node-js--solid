@@ -6,6 +6,12 @@ import { ICheckInsRepository } from '../check-ins-repository'
 export class InMemoryCheckInsRepository implements ICheckInsRepository {
   private checkIns: CheckIn[] = []
 
+  async findManyByUserId(userId: string, page: number): Promise<CheckIn[]> {
+    return this.checkIns
+      .filter((checkIn) => checkIn.user_id === userId)
+      .slice((page - 1) * 20, page * 20)
+  }
+
   async findByUserIdOnDate(
     userId: string,
     date: Date,
