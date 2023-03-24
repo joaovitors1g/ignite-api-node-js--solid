@@ -6,7 +6,7 @@ import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-
 import { MaxNumberOfCheckinsError } from './errors/max-number-of-checkins-error'
 import { MaxDistanceError } from './errors/max-distance-error'
 
-describe('AuthenticateUserUseCase', () => {
+describe('CheckInUseCase', () => {
   let checkInsRepository: InMemoryCheckInsRepository
   let gymsRepository: InMemoryGymsRepository
   let sut: CheckinUseCase
