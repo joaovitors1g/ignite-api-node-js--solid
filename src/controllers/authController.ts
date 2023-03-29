@@ -16,9 +16,22 @@ export class AuthController {
     try {
       const authenticateUserUseCase = makeAuthenticateUserUseCase()
 
-      await authenticateUserUseCase.execute({
+      const { user } = await authenticateUserUseCase.execute({
         email,
         password,
+      })
+
+      const token = await reply.jwtSign(
+        {},
+        {
+          sign: {
+            sub: user.id,
+          },
+        },
+      )
+
+      return reply.status(200).send({
+        token,
       })
     } catch (error) {
       if (error instanceof InvalidCredentialsError) {
@@ -29,7 +42,5 @@ export class AuthController {
 
       throw error
     }
-
-    return reply.status(200).send()
   }
 }
