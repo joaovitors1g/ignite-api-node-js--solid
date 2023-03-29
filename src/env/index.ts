@@ -6,6 +6,7 @@ const envSchema = z.object({
     .enum(['development', 'production', 'test'])
     .default('development'),
   PORT: z.coerce.number().positive().default(3333),
+  JWT_SECRET: z.string().nonempty(),
 })
 
 const _env = envSchema.safeParse(process.env)
