@@ -57,7 +57,7 @@ export class GymController {
       longitude: z.number().refine((value) => Math.abs(value) <= 180),
     })
 
-    const { latitude, longitude } = nearbyGymsQuerySchema.parse(req.body)
+    const { latitude, longitude } = nearbyGymsQuerySchema.parse(req.query)
 
     const getNearbyGymsUseCase = makeGetNearbyGymsUseCase()
 
