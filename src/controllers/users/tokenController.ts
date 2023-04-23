@@ -6,8 +6,12 @@ export class TokenController {
       onlyCookie: true,
     })
 
+    const { role } = req.user
+
     const token = await reply.jwtSign(
-      {},
+      {
+        role,
+      },
       {
         sign: {
           sub: req.user.sub,
@@ -16,7 +20,9 @@ export class TokenController {
     )
 
     const refreshToken = await reply.jwtSign(
-      {},
+      {
+        role,
+      },
       {
         sign: {
           sub: req.user.sub,
