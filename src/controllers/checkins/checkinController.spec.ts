@@ -118,7 +118,7 @@ describe('CheckIn Controller', () => {
     expect(response.body.checkInsCount).toEqual(2)
   })
   it('should be able to validate a check-in', async () => {
-    const { token } = await createAndAuthenticateUsers(app)
+    const { token } = await createAndAuthenticateUsers(app, true)
 
     const user = await prisma.user.findFirstOrThrow()
 

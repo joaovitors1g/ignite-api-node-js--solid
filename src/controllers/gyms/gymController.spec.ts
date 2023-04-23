@@ -18,7 +18,7 @@ describe('Gym Controller', () => {
   })
 
   it('should be able to get create a gym', async () => {
-    const { token } = await createAndAuthenticateUsers(app)
+    const { token } = await createAndAuthenticateUsers(app, true)
 
     const response = await request(app.server)
       .post('/gyms')
@@ -35,7 +35,7 @@ describe('Gym Controller', () => {
   })
 
   it('should be able to search gyms by name', async () => {
-    const { token } = await createAndAuthenticateUsers(app)
+    const { token } = await createAndAuthenticateUsers(app, true)
 
     await request(app.server)
       .post('/gyms')
@@ -79,7 +79,7 @@ describe('Gym Controller', () => {
   })
 
   it('should be able to list nearby gyms', async () => {
-    const { token } = await createAndAuthenticateUsers(app)
+    const { token } = await createAndAuthenticateUsers(app, true)
 
     await request(app.server)
       .post('/gyms')
